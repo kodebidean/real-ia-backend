@@ -1,0 +1,78 @@
+# ==============================================
+# 🔥 Spring Boot + PostgreSQL + IDEs GitIgnore
+# ==============================================
+
+# 💻 Archivos Generados por Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+.mvn/
+logs/
+hs_err_pid*
+
+# 💾 Base de Datos y Configuración Sensible
+*.db
+*.sqlite
+.env
+*.log
+application.properties
+application.yml
+application-dev.properties
+application-prod.properties
+
+# 🚀 IntelliJ IDEA Configuración
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+.idea_modules/
+
+# 📦 Eclipse & STS
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans/
+.sts4-cache/
+
+# 🔧 VS Code
+.vscode/
+.history/
+*.code-workspace
+
+# 🔍 NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# 🔐 Seguridad (Claves, Certificados, SSH)
+*.pem
+*.crt
+*.key
+*.p12
+*.jks
+
+# 🛠 Logs y Errores de Java
+*.log
+*.err
+*.out
+hs_err_pid*
+
+# 🚀 Docker & Kubernetes
+docker-compose.override.yml
+docker-compose.yml
+.dockerignore
+.kube/
+
+# 📄 Archivos del Sistema Operativo
+.DS_Store
+Thumbs.db
+ehthumbs.db
