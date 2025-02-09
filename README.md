@@ -3,7 +3,7 @@
 Backend del proyecto **Real IA**, basado en **Spring Boot + PostgreSQL**.
 
 ## 📌 Características
-- API REST desarrollada con **Spring Boot 3.4.2**.
+- API REST desarrollada con **Spring Boot 3.2.2**.
 - Base de datos **PostgreSQL** integrada con **Spring Data JPA**.
 - Arquitectura **MRC (Modelo - Repositorio - Controlador)**.
 - Configuración lista para producción y despliegue.

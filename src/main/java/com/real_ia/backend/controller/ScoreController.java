@@ -5,7 +5,6 @@ import com.real_ia.backend.service.ScoreService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/score")

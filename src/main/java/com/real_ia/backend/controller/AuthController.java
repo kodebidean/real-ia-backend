@@ -1,6 +1,4 @@
 package com.real_ia.backend.controller;
-
-import com.real_ia.backend.model.User;
 import com.real_ia.backend.service.AuthService;
 import com.real_ia.backend.dto.auth.RegisterRequest;
 import com.real_ia.backend.dto.auth.LoginRequest;
