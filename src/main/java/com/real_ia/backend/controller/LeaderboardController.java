@@ -17,9 +17,9 @@ public class LeaderboardController {
         this.leaderboardService = leaderboardService;
     }
 
-    @GetMapping("/top10")
-    public List<Leaderboard> getTop10Scores() {
-        return leaderboardService.getTop10Scores();
+    @GetMapping("/top100")
+    public List<Leaderboard> getTop100Scores() {
+        return leaderboardService.getTop100Scores();
     }
 
     @PostMapping

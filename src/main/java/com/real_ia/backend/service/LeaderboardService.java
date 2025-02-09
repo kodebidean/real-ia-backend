@@ -14,7 +14,7 @@ public class LeaderboardService {
         this.leaderboardRepository = leaderboardRepository;
     }
 
-    public List<Leaderboard> getTop10Scores() {
+    public List<Leaderboard> getTop100Scores() {
         return leaderboardRepository.findTop100ByOrderByScoreDesc();
     }
 
