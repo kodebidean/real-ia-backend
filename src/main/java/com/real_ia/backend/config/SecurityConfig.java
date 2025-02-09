@@ -15,7 +15,6 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import java.util.Arrays;
-import com.real_ia.backend.service.UserSessionService;
 
 @Configuration
 @EnableWebSecurity
@@ -23,8 +22,6 @@ import com.real_ia.backend.service.UserSessionService;
 public class SecurityConfig {
     
     private final JwtRequestFilter jwtRequestFilter;
-    private final AppProperties appProperties;
-    private final UserSessionService userSessionService;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -32,7 +29,7 @@ public class SecurityConfig {
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/**", "/api/test", "/api/health", "/api/users/**").permitAll()
+                .requestMatchers("/api/auth/**", "/api/test", "/api/health").permitAll()
                 .anyRequest().authenticated()
             )
             .sessionManagement(session -> session
