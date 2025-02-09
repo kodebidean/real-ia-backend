@@ -22,7 +22,6 @@ import java.util.Arrays;
 public class SecurityConfig {
     
     private final JwtRequestFilter jwtRequestFilter;
-    private final AppProperties appProperties;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -30,7 +29,7 @@ public class SecurityConfig {
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/**", "/api/test").permitAll()
+                .requestMatchers("/api/auth/**", "/api/test", "/api/health").permitAll()
                 .anyRequest().authenticated()
             )
             .sessionManagement(session -> session
@@ -49,11 +48,11 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList(appProperties.getCors().getAllowedOrigins()));
-        configuration.setAllowedMethods(Arrays.asList(appProperties.getCors().getAllowedMethods()));
-        configuration.setAllowedHeaders(Arrays.asList(appProperties.getCors().getAllowedHeaders()));
-        configuration.setExposedHeaders(Arrays.asList(appProperties.getCors().getExposedHeaders()));
-        configuration.setAllowCredentials(true);
+        configuration.setAllowedOrigins(Arrays.asList("*"));
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "Origin", "Accept", "X-Requested-With"));
+        configuration.setExposedHeaders(Arrays.asList("Authorization"));
+        configuration.setAllowCredentials(false);
         
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
