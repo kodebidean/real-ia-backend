@@ -10,6 +10,5 @@ RUN chmod +x mvnw
 RUN ./mvnw clean package -DskipTests
 
 FROM eclipse-temurin:21-jre-alpine
-VOLUME /tmp
 COPY --from=build /workspace/app/target/*.jar app.jar
 ENTRYPOINT ["java", "-Dspring.profiles.active=prod", "-jar", "/app.jar"] 
