@@ -4,15 +4,13 @@ import com.real_ia.backend.model.UserSession;
 import com.real_ia.backend.repository.UserSessionRepository;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor
 public class UserSessionService {
 
     private final UserSessionRepository userSessionRepository;
-
-    public UserSessionService(UserSessionRepository userSessionRepository) {
-        this.userSessionRepository = userSessionRepository;
-    }
 
     public Optional<UserSession> getSessionByToken(String token) {
         return userSessionRepository.findByToken(token);
@@ -20,5 +18,9 @@ public class UserSessionService {
 
     public void deleteSessionByUserId(Long userId) {
         userSessionRepository.deleteByUserId(userId);
+    }
+
+    public UserSession saveSession(UserSession session) {
+        return userSessionRepository.save(session);
     }
 }
