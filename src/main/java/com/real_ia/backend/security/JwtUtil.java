@@ -12,18 +12,14 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 
 @Component
 @RequiredArgsConstructor
 public class JwtUtil {
     private final AppProperties appProperties;
-    private static final Logger logger = LoggerFactory.getLogger(JwtUtil.class);
+
     private SecretKey getSigningKey() {
-        String secret = appProperties.getJwt().getSecret();
-        logger.info("🔑 JWT_SECRET actual: {}", secret != null ? "CARGADO ✅" : "NO CARGADO ❌");
         byte[] keyBytes = appProperties.getJwt().getSecret().getBytes(StandardCharsets.UTF_8);
         return Keys.hmacShaKeyFor(keyBytes);
     }
